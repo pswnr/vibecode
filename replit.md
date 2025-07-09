@@ -1,12 +1,12 @@
-# VibeCorde API Tester
+# Currency Converter Web Application
 
 ## Overview
 
-This is a full-stack API testing application built with React, Express, and PostgreSQL. It provides a Postman-like interface for testing REST APIs, with features for saving requests, managing configurations, and viewing request history. The application uses a modern tech stack with TypeScript, shadcn/ui components, and Drizzle ORM for database operations.
+This is a React-based currency converter web application that allows users to convert between different currencies using real-time exchange rates. The application provides a simple, user-friendly interface for currency conversion with support for 20+ popular currencies. It uses a free currency API for fetching exchange rates and includes features like quick currency pair selection and detailed conversion results.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+Preferred communication style: Simple, everyday language (Thai and English).
 
 ## System Architecture
 
