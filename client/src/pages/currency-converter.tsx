@@ -173,24 +173,31 @@ export default function CurrencyConverter() {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-              {popularPairs.map((pair, index) => (
-                <Button
-                  key={index}
-                  variant="outline"
-                  className="text-left h-auto p-3 justify-start"
-                  onClick={() => {
-                    setFromCurrency(pair.from);
-                    setToCurrency(pair.to);
-                  }}
-                >
-                  <div className="flex items-center space-x-2">
-                    <span>{getCurrencyInfo(pair.from).flag}</span>
-                    <ArrowUpDown size={14} />
-                    <span>{getCurrencyInfo(pair.to).flag}</span>
-                    <span className="text-sm">{pair.label}</span>
-                  </div>
-                </Button>
-              ))}
+              {popularPairs.map((pair, index) => {
+                const isActive = fromCurrency === pair.from && toCurrency === pair.to;
+                return (
+                  <Button
+                    key={index}
+                    variant={isActive ? "default" : "outline"}
+                    className={`text-left h-auto p-3 justify-start transition-all duration-200 ${
+                      isActive 
+                        ? "bg-green-600 hover:bg-green-700 text-white shadow-md" 
+                        : "hover:bg-gray-50 hover:border-green-300"
+                    }`}
+                    onClick={() => {
+                      setFromCurrency(pair.from);
+                      setToCurrency(pair.to);
+                    }}
+                  >
+                    <div className="flex items-center space-x-2">
+                      <span>{getCurrencyInfo(pair.from).flag}</span>
+                      <ArrowUpDown size={14} />
+                      <span>{getCurrencyInfo(pair.to).flag}</span>
+                      <span className="text-sm">{pair.label}</span>
+                    </div>
+                  </Button>
+                );
+              })}
             </div>
           </CardContent>
         </Card>
