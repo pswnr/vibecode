@@ -67,7 +67,12 @@ export class MemStorage implements IStorage {
     const request: ApiRequest = { 
       ...insertRequest, 
       id,
-      timestamp: new Date()
+      timestamp: new Date(),
+      body: insertRequest.body || null,
+      duration: insertRequest.duration || null,
+      status: insertRequest.status || null,
+      headers: insertRequest.headers || {},
+      response: insertRequest.response || null
     };
     this.apiRequests.set(id, request);
     return request;
@@ -87,7 +92,8 @@ export class MemStorage implements IStorage {
     const config: ApiConfiguration = { 
       ...insertConfig, 
       id,
-      createdAt: new Date()
+      createdAt: new Date(),
+      description: insertConfig.description || null
     };
     this.apiConfigurations.set(id, config);
     return config;
